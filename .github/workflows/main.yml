@@ -35,8 +35,6 @@ jobs:
           sed -i "s/^ tag: .*/ tag: ${{ github.run_number }}/" values.yaml
           git config --global user.email 'actions@github.com'
           git config --global user.name 'GitHub Actions'
-          git status
           git add values.yaml
-          git status
-          git commit -m "Update file values.yaml"
+          git commit -m "Update file values.yaml" || echo "No changes to commit"
           git push
